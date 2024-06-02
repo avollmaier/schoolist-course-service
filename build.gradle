@@ -25,6 +25,17 @@ ext {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    implementation 'org.mapstruct:mapstruct:1.5.5.Final'
+    implementation 'io.micrometer:micrometer-tracing-bridge-otel'
+    implementation 'net.ttddyy.observation:datasource-micrometer-spring-boot:1.0.3'
+    implementation 'io.opentelemetry:opentelemetry-exporter-otlp'
+    implementation 'io.github.digma-ai:digma-spring-boot-micrometer-tracing-autoconf:0.7.7'
+    runtimeOnly 'org.postgresql:postgresql'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
+    annotationProcessor("org.projectlombok:lombok-mapstruct-binding:0.2.0")
+
 
     //Observability
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
@@ -33,14 +44,15 @@ dependencies {
     runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
 
     //Dev-Tools
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0'
     implementation 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     testAndDevelopmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 
     //Testing
+    testImplementation 'org.springdoc:springdoc-openapi-starter-webmvc-api'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation 'io.projectreactor:reactor-test'
 }
 
 dependencyManagement {

@@ -13,6 +13,20 @@ spring:
     name: course-service
   lifecycle:
     timeout-per-shutdown-phase: 15s
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  datasource:
+    username: ${MANAGEMENT_DB_USERNAME:postgres}
+    password: ${MANAGEMENT_DB_PASSWORD:password}
+    url: ${MANAGEMENT_DB_STRING:jdbc:postgresql://localhost:5432/management}
+    hikari:
+      connection-timeout: 2000 #ms
+      maximum-pool-size: 5
+springdoc:
+  api-docs:
+    path: /api-docs
 
 logging:
   pattern:
